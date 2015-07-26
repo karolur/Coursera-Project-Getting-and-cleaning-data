@@ -1,0 +1,32 @@
+
+##Introduction
+
+The script run_analysis.Rperforms the 5 steps described in the course project's definition.
+
+After reading the files into R:
+
+    -Columns of activity_labels where named “ActivityId” and “Activity”
+    -Columns of subject_test and subject_train where named “Subject”
+    -Columns of x_test and x_train where named “ActivityId”
+    -Columns of y_text and y_train where named using table ‘features“
+    -Union of columns of the subject,y and x files in a data frame called              runtest and runtrain
+    -Merge of runtest and runtrain with activity_labels to match ActivityId
+    -Union of rows of runtest and run train
+    -Subset only columns with “std()” and “mean()”
+    -Rename columns replacing characters such as () and - and making it more easily readable
+    -Apply function of mean to each column according to Activity and Subject
+
+##Variables
+
+
+x_train, y_train, x_test, y_test, subject_train and subject_test contain the data from the downloaded files.
+
+x_data, y_data and subject_data merge the previous datasets to further analysis.
+
+features contains the correct names for the x_data dataset, which are applied to the column names stored in mean_and_std_features, a numeric vector used to extract the desired data.
+
+A similar approach is taken with activity names through the activities variable.
+
+all_data merges x_data, y_data and subject_data in a big dataset.
+Finally, averages_data contains the relevant averages which will be later stored in a .txt file. ddply() from the plyr package is used to apply colMeans() and ease the development.
+
